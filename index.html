@@ -1,20 +1,31 @@
 <!doctype html>
 <html ng-app="myApp">
   <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="js/main.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </head>
   <body>
-    <h1>NPR radio</h1>
-    <div ng-controller="PlayerController">
-        <button ng-show="playing" ng-click="pause()">Stop</button>
-        <button ng-show ="!playing" ng-click="continue()">Continue</button>
+    <div class="container">
+    <div class="page-header">
+      <h1>NPR Radio</h1>
+      <p class="text-muted">Built from AngularJS tutorial on ng-newsletter.</p>
+    </div>
+        
+    <div ng-controller="PlayerController" class="col-xs-8 col-md-5 col-sm-8 col-md-offset-3 col-sm-offset-2 col-xs-offset-2">
+       
         <ul>
             <li ng-repeat = "program in programs" ng-click="play(program)">
-                <span>{{ program.title.$text }}</span>
+                <span><a> {{ program.title.$text }}</a></span>
             </li>
         </ul>
+        <br>
+         <button type = "button" class="btn pull-right" ng-show="playing" ng-click="pause()">Stop</button>
+        <button type="button" class="btn pull-right" ng-show ="!playing" ng-click="continue()">Continue</button>
     </div>
-   
+   </div>
   </body>
 </html>
