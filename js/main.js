@@ -10,13 +10,16 @@ var apiKey = 'MDIxNDUwNjU5MDE0NDg3NzcyMzQ1MTAxZQ000',
 // NPR Radio
 app.controller('PlayerController',['$scope','$http',function($scope,$http){
     var audio = document.createElement('audio');
+    var audio_text = "(None)";
     $scope.audio = audio;
+    $scope.audio_text = audio_text;
     $scope.playing = false;
     $scope.play = function(program){
       if($scope.playing){
           $scope.audio.pause();
       }  
       var url = program.audio[0].format.mp4.$text;
+      $scope.audio_text = program.title.$text;
         audio.src = url;
         audio.play();
         $scope.playing = true;
