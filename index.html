@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    </head>
+  <body>
+    <h1>NPR radio</h1>
+    <div ng-controller="PlayerController">
+        <button ng-show="playing" ng-click="pause()">Stop</button>
+        <button ng-show ="!playing" ng-click="continue()">Continue</button>
+        <ul>
+            <li ng-repeat = "program in programs" ng-click="play(program)">
+                <span>{{ program.title.$text }}</span>
+            </li>
+        </ul>
+    </div>
+   
+  </body>
+</html>
